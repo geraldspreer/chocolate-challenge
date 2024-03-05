@@ -1,13 +1,15 @@
 <div class="container">
 
   @if (chocolateData$ | async; as chocolateData) {
-  @for (chocolate of chocolateData; track chocolate.id) {
-  <!--
+  <div class="row">
 
-  <app-chocolate [chocolate]="chocolate"></app-chocolate>
-  -->
-  }
+    @for (chocolate of chocolateData; track chocolate.id) {
+    <div class="col-md-4">
+      <app-chocolate [chocolate]="chocolate"></app-chocolate>
+    </div>
+    }
 
+  </div>
 
   } @else {
   <!-- Actually use that loading feature -->

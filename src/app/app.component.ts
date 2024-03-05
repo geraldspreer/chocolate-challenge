@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { ChocolateDataService } from './services/chocolate.service';
 import { Observable } from 'rxjs';
 import { Chocolate } from './interfaces/chocolate';
+import { ChocolateComponent } from './components/chocolate/chocolate.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, ChocolateComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })

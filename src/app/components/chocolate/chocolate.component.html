@@ -1,0 +1,13 @@
+<div class="card mb-4">
+  <div class="card-body">
+    <h6 class="card-title h4">{{ chocolate.name }}</h6>
+    <p class="card-text px-4">
+    <ul>
+      <li>{{ chocolate.brand }}</li>
+    </ul>
+    <div class="card-text d-flex">
+      <!-- use a pipe the find the cheapest -->
+      <span class="h4 ms-auto text-bold">{{ chocolate.prices | showCheapest }} €</span>&nbsp;<span></span>
+    </div>
+  </div>
+</div>
