@@ -6,9 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ShowCheapestPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    console.log('value', value);
-    return null;
+  // TODO: Fix type
+  transform(value: any, ...args: unknown[]): unknown {
+    return value[0];
   }
 
 }

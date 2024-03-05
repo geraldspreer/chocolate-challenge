@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Chocolate } from '../../interfaces/chocolate';
 import { ShowCheapestPipe } from '../../pipes/show-cheapest.pipe';
+import { CurrencyPipe } from '@angular/common';
 
 // TODO: Move to other file
 export const UnknownChocolate: Chocolate = {
@@ -26,7 +27,7 @@ export const UnknownChocolate: Chocolate = {
 @Component({
   selector: 'app-chocolate',
   standalone: true,
-  imports: [ShowCheapestPipe],
+  imports: [ShowCheapestPipe, CurrencyPipe],
   templateUrl: './chocolate.component.html',
   styleUrl: './chocolate.component.sass'
 })

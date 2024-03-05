@@ -2,24 +2,26 @@
   <div class="card-body">
     <div class="d-flex justify-content-between">
       <h6 class="card-title fw-bold h5">{{ chocolate.name }}</h6>
-      <button
-        (click)="toggleDetails(chocolate.id)"
-        class="btn btn-sm ms-auto me-0 pe-0 link-primary"
-      >
-        Details
-        @if (openDetails.includes(chocolate.id)) {
-          schließen
-        }
+      <button (click)="toggleDetails(chocolate.id)" class="btn btn-sm ms-auto me-0 pe-0 link-primary">
+        Details @if (openDetails.includes(chocolate.id)) { schließen }
       </button>
     </div>
     <div class="card-text d-flex">
       <span class="me-2">Hersteller:</span> {{ chocolate.brand }}
       @if (openDetails.includes(chocolate.id)) {
-        Ha Details
+      @for(price of chocolate.prices; track price.link) {
+        <span class="fw-bold text-success"> {{ price.amount | currency: 'EUR': true: '1.2-2' }}</span>
+        }
       } @else {
-        <span class="ms-auto me-2">Günstigster Preis:</span>
-        {{ chocolate.prices | showCheapest }} €
-      }
+      <div class="ms-auto d-flex flex-column align-items-end">
+      @for(price of chocolate.prices; track price.link) {
+        @if(price === (chocolate.prices | showCheapest)) {
+          <div class='small'>günstigster Preis pro 100g</div>
+          <div class="fw-bold text-success h3 py-2">{{ price.amount | currency: 'EUR': true: '1.2-2' }}</div>
+          <div>zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
+            }
+          }
     </div>
+        }
   </div>
 </div>

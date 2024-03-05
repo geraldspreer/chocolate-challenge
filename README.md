@@ -26,6 +26,8 @@ added later.
 ## TODO: 
 
 - [ ] Setup production environment once the backend is ready
+- [ ] Implement pagination
+- [ ] Add a functon to show / hide all details
 - [ ] Add a spinner when the data is being loaded in `app.component.html`
 - [ ] Use a nicer UI framework like AdminLTE when the visuals get more complex
 - [ ] Add routing to the app, when it is needed
