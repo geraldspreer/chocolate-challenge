@@ -32,4 +32,14 @@ export const UnknownChocolate: Chocolate = {
 })
 export class ChocolateComponent {
   @Input() chocolate: Chocolate = UnknownChocolate;
+
+  openDetails: string[] = [];
+
+  toggleDetails(id: string): void {
+    if (this.openDetails.includes(id)) {
+      this.openDetails = this.openDetails.filter((i) => i !== id);
+      return;
+    }
+    this.openDetails.push(id);
+  }
 }
