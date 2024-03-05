@@ -1,3 +1,5 @@
+import { Price } from "./price";
+
 export interface Chocolate {
   id: string;
   name: string;
@@ -5,14 +7,6 @@ export interface Chocolate {
   currency: string;
   prices: Price[];
   nutrition: Nutrition;
-}
-
-interface Price {
-  price: number;
-  shop: string;
-  link: string;
-  unit: string;
-  amount: number;
 }
 
 interface Nutrition {

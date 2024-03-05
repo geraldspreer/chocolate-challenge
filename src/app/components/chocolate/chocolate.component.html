@@ -23,7 +23,7 @@
       } @else {
       <div class="ms-auto d-flex flex-column align-items-end">
       @for(price of chocolate.prices; track price.link) {
-        @if(price === (chocolate.prices | showCheapest)) {
+        @if(price.link === (chocolate.prices | cheapestPrice).link) {
           <div class='small'>günstigster Preis pro 100g</div>
           <div class="fw-bold text-success h3 py-2">{{ price.price | currency: 'EUR': true: '1.2-2' }}</div>
           <div class='small'>im Durchschnitt {{ chocolate.prices | averagePrice | currency: 'EUR': true: '1.2-2'}}  </div>
