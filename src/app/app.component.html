@@ -1,7 +1,18 @@
-@if (chocolateData$ | async; as chocolateData) {
+<div class="container">
 
- {{ chocolateData | json }}
+  @if (chocolateData$ | async; as chocolateData) {
+  @for (chocolate of chocolateData; track chocolate.id) {
+  <!--
 
-}
+  <app-chocolate [chocolate]="chocolate"></app-chocolate>
+  -->
+  }
 
-<router-outlet></router-outlet>
+
+  } @else {
+  <!-- Actually use that loading feature -->
+  Loading...
+  }
+
+  <router-outlet></router-outlet>
+</div>
