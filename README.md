@@ -1,27 +1,26 @@
-# ChocolateChallenge
+# Chocolate Challenge  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.9.
+Version 0.0.1 :: Prototype first iteration
 
-## Development server
+This project uses Angular version 17.0.9.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## How to run this example
 
-## Code scaffolding
+Run `ng serve` for a dev server
+Run `ng test` to execute the unit tests
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Navigate to `localhost:4200`
 
-## Build
+Note: If you have multiple Anglular Apps running, you might need to change the port number.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Steve Jobs once said:  
+> Good programmers ship!
 
-## Running unit tests
+Therefore there are a few things that are not yet implemented, but should be 
+added later.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## TODO: 
 
-## Running end-to-end tests
+- [ ] Add a spinner when the data is being loaded in `app.component.html`
+- [ ] Use a nicer UI framework like AdminLTE when the visuals get more complex
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
