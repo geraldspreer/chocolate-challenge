@@ -1,12 +1,10 @@
 <div class="card">
   <div class="card-body">
-    <h6 class="card-title">{{ chocolate.name }}</h6>
-    <p class="card-text">
-      <strong>Marke:</strong> {{ chocolate.brand }}
-    </p>
-    <p class="card-text">
-      <strong>Preis:</strong> {{ chocolate.prices | showCheapest }} €
-    </p>
+    <h6 class="card-title fw-bold h5">{{ chocolate.name }}</h6>
+    <div class="card-text d-flex">
+      <span class='me-2'>Hersteller:</span> {{ chocolate.brand }}
+      <span class='ms-auto me-2'>Günstigster Preis:</span> {{ chocolate.prices | showCheapest }} €
+    </div>
   </div>
 </div>
 
