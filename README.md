@@ -23,4 +23,5 @@ added later.
 
 - [ ] Add a spinner when the data is being loaded in `app.component.html`
 - [ ] Use a nicer UI framework like AdminLTE when the visuals get more complex
+- [ ] Add routing to the app, when it is needed
 
