@@ -26,6 +26,7 @@ added later.
 ## TODO: 
 
 - [ ] Setup production environment once the backend is ready
+- [ ] Add unit tests to all components
 - [ ] Implement pagination
 - [ ] Add a functon to show / hide all details
 - [ ] Add a spinner when the data is being loaded in `app.component.html`

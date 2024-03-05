@@ -2,26 +2,38 @@
   <div class="card-body">
     <div class="d-flex justify-content-between">
       <h6 class="card-title fw-bold h5">{{ chocolate.name }}</h6>
-      <button (click)="toggleDetails(chocolate.id)" class="btn btn-sm ms-auto me-0 pe-0 link-primary">
-        Details @if (openDetails.includes(chocolate.id)) { schließen }
-      </button>
+      @if(chocolate.prices.length) {
+        <button (click)="toggleDetails(chocolate.id)" class="btn btn-sm ms-auto me-0 pe-0 link-primary">
+          Details @if (openDetails.includes(chocolate.id)) { schließen }
+        </button>
+      }
     </div>
     <div class="card-text d-flex">
       <span class="me-2">Hersteller:</span> {{ chocolate.brand }}
+      @if(chocolate.prices.length) {
+      <div class="ms-auto d-flex flex-column align-items-end py-3">
       @if (openDetails.includes(chocolate.id)) {
       @for(price of chocolate.prices; track price.link) {
-        <span class="fw-bold text-success"> {{ price.amount | currency: 'EUR': true: '1.2-2' }}</span>
+        <div>zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
+        <div class='py-2 mb-4 border-botton'>
+          <span class='me-2'>pro {{ price.amount}}{{ price.unit}}</span>
+          <span class="fw-bold text-success h4">{{ price.price | currency: 'EUR': true: '1.2-2' }}</span>
+        </div>
         }
       } @else {
       <div class="ms-auto d-flex flex-column align-items-end">
       @for(price of chocolate.prices; track price.link) {
         @if(price === (chocolate.prices | showCheapest)) {
           <div class='small'>günstigster Preis pro 100g</div>
-          <div class="fw-bold text-success h3 py-2">{{ price.amount | currency: 'EUR': true: '1.2-2' }}</div>
+          <div class="fw-bold text-success h3 py-2">{{ price.price | currency: 'EUR': true: '1.2-2' }}</div>
+          <div class='small'>im Durchschnitt {{ chocolate.prices | averagePrice | currency: 'EUR': true: '1.2-2'}}  </div>
           <div>zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
             }
           }
     </div>
         }
   </div>
+  } @else {
+    <div class="alert alert-warning ms-auto">Keine Preise gefunden</div>
+  }
 </div>
