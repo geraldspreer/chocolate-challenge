@@ -6,11 +6,13 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Chocolate } from './interfaces/chocolate';
 import { ChocolateComponent } from './components/chocolate/chocolate.component';
+import { StatsPipe } from './pipes/stats.pipe';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, ChocolateComponent],
+  // TODO: Remove what we don't need
+  imports: [CommonModule, RouterOutlet, ChocolateComponent, StatsPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass',
 })

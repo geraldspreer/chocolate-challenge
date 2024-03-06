@@ -11,8 +11,7 @@ export class CheapestPricePipe implements PipeTransform {
     const result = prices[0];
     // Sort by price
     const x = prices.sort((a, b) => b.amount - a.amount);
-    x.forEach((price) => {
-      console.log(price, price.amount);
+    x.forEach((_) => {
     });
     return result;
   }

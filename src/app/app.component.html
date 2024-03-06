@@ -9,20 +9,16 @@
 
   @if (chocolateData$ | async; as chocolateData) {
     <div class="card">
-      @for (chocolate of chocolateData; track chocolate.id) {
+      @for (chocolate of chocolateData | includeStats ; track chocolate.id) {
         <div class="card-body">
           <app-chocolate [chocolate]="chocolate"></app-chocolate>
         </div>
       }
-
     </div>
   } @else {
-  <!-- TODO: Implement loading spinner in the next development iteration-->
-  Loading...
+    <!-- TODO: Implement loading spinner in the next development iteration-->
+    Loading...
   }
 
-  <!--
-    TODO: Add routing at a later stage
-    <router-outlet></router-outlet>
-  -->
+  <!-- TODO: <router-outlet></router-outlet> -->
 </div>

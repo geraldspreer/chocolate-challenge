@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { Chocolate } from '../../interfaces/chocolate';
 import { CurrencyPipe } from '@angular/common';
 import { AveragePricePipe } from '../../pipes/average-price.pipe';
 import { CheapestPricePipe } from '../../pipes/cheapest-price.pipe';
 import { UnknownChocolate } from '../../objects/unknown-chocolate';
+import { ChocolateWithStats } from '../../interfaces/chocolate-with-stats';
 
 @Component({
   selector: 'app-chocolate',
@@ -13,7 +13,7 @@ import { UnknownChocolate } from '../../objects/unknown-chocolate';
   styleUrl: './chocolate.component.sass'
 })
 export class ChocolateComponent {
-  @Input() chocolate: Chocolate = UnknownChocolate;
+  @Input() chocolate: ChocolateWithStats = UnknownChocolate;
 
   openDetails: string[] = [];
 

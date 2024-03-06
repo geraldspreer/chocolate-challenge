@@ -11,28 +11,28 @@
     <div class="card-text d-flex">
       <span class="me-2">Hersteller:</span>{{ chocolate.brand }}
       @if(chocolate.prices.length) {
-      <div class="ms-auto d-flex flex-column align-items-end py-3">
-      @if (openDetails.includes(chocolate.id)) {
-      @for(price of chocolate.prices; track price.link) {
-        <div>zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
-        <div class='py-2 mb-4 border-botton'>
-          <span class='me-2'>pro {{ price.amount}}{{ price.unit}}</span>
-          <span class="fw-bold text-success h4">{{ price.price | currency: 'EUR': true: '1.2-2' }}</span>
-        </div>
-        }
-      } @else {
-      <div class="ms-auto d-flex flex-column align-items-end">
-      @for(price of chocolate.prices; track price.link) {
-        @if(price.link === (chocolate.prices | cheapestPrice).link) {
-          <div class='small'>günstigster Preis pro 100g</div>
-          <div class="fw-bold text-success h3 py-2">{{ price.price | currency: 'EUR': true: '1.2-2' }}</div>
-          <div class='small'>im Durchschnitt {{ chocolate.prices | averagePrice | currency: 'EUR': true: '1.2-2'}}  </div>
-          <div>zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
+        <div class="ms-auto d-flex flex-column align-items-end py-3">
+        @if (openDetails.includes(chocolate.id)) {
+          @for(price of chocolate.prices; track price.link) {
+            <div>zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
+            <div class='py-2 mb-4 border-botton'>
+              <span class='me-2'>pro {{ price.amount}}{{ price.unit}}</span>
+              <span class="fw-bold text-success h4">{{ price.price | currency: 'EUR': true: '1.2-2' }}</span>
+            </div>
             }
+        } @else {
+          <div class="ms-auto d-flex flex-column align-items-end">
+          @for(price of chocolate.prices; track price.link) {
+            @if(price.isCheapest) {
+              <div class='small'>günstigster Preis pro 100g</div>
+              <div class="fw-bold text-success h3 py-2">{{ price.price | currency: 'EUR': true: '1.2-2' }}</div>
+              <div class='small'>im Durchschnitt {{ chocolate.averagePrice | currency: 'EUR': true: '1.2-2'}}  </div>
+              <div class='mb-3'>zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
+                }
+              }
+        </div>
           }
     </div>
-        }
-  </div>
   } @else {
     <div class="alert alert-warning ms-auto">Keine Preise gefunden</div>
   }
