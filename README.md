@@ -25,7 +25,7 @@ added later.
 
 ## TODO: 
 
-- [ ] Setup production environment once the backend is ready
+- [ ] Setup production environment once the backend is ready, set apiUrl in `environment.prod.ts`
 - [ ] Add unit tests to all components
 - [ ] Implement pagination
 - [ ] Add a functon to show / hide all details

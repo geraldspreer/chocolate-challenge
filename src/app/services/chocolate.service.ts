@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { chocolateData } from '../../data/chocolate-data';
-import { of } from 'rxjs';
-import { Chocolate } from '../interfaces/chocolate';
-
+import { environment } from '../../environments/environment';
+import { ChocolateResponse } from '../interfaces/chocolate-response';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +10,9 @@ import { Chocolate } from '../interfaces/chocolate';
 
 export class ChocolateDataService {
 
-  constructor(private _: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  // Add strategy pattern
-  // Add http methods
-  // Add configurtion via enviroment
-  public getChocolateData(): Observable<Chocolate[]> {
-    return of(chocolateData.data);
+  public getChocolate(): Observable<ChocolateResponse> {
+    return this.http.get<ChocolateResponse>(environment.apiUrl);
   }
 }
