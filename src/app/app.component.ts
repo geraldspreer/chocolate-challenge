@@ -22,4 +22,10 @@ export class AppComponent {
     .pipe(map((response) => response.data));
 
   constructor(private chocolateService: ChocolateDataService) {}
+
+  // TODO: Remvoe this
+  log(item: any): void {
+    console.log(item);
+  }
+
 }

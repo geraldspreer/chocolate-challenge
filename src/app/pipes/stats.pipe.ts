@@ -17,6 +17,7 @@ export class StatsPipe implements PipeTransform {
         prices: chocolate.prices.map((price) => ({
           ...price,
           isCheapest: this.isCheapest(price, chocolate.prices),
+          priceFor100g: this.for100g(price)
         }))
       };
 
@@ -27,10 +28,9 @@ export class StatsPipe implements PipeTransform {
 
   private isCheapest(price: Price, otherPrices: Price[]): boolean {
       otherPrices = otherPrices.map(price => {
-      return { ...price, price: this.convertToGram(price) };
+      return { ...price, price: this.for100g(price) };
     });
     const sortedPrices = otherPrices.sort((a, b) => a.price - b.price);
-    console.log(sortedPrices);
     if (sortedPrices[0].link === price.link) {
       return true;
     }
@@ -38,12 +38,16 @@ export class StatsPipe implements PipeTransform {
   }
 
   private findAveragePrice(prices: Price[]): number {
-    return Math.min(...prices.map((price) => this.convertToGram(price)));
+    return Math.min(...prices.map((price) => this.for100g(price)));
   }
 
-  private convertToGram(price: Price): number {
-    let divider = (price.unit === 'kg') ? 1000 : 100;
+  private for100g({ amount, unit, price }: Price): number {
+    if (unit === 'kg') { amount = amount * 1000; }
 
-    return price.price / (price.amount / divider);
+    const divisor = amount / 100;
+    const priceFor100g = price / divisor;
+
+    return parseFloat(priceFor100g.toFixed(2));
+
   }
 }
