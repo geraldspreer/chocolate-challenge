@@ -11,7 +11,7 @@ describe('ChocolateComponent', () => {
       imports: [ChocolateComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ChocolateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,5 +19,9 @@ describe('ChocolateComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('openDetails', () => {
+    pending('TODO: Add a unit test for this method');
   });
 });

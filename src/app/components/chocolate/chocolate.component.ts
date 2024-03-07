@@ -6,7 +6,7 @@ import { ChocolateWithStats } from '../../interfaces/chocolate-with-stats';
 @Component({
   selector: 'app-chocolate',
   standalone: true,
-  imports: [CurrencyPipe,],
+  imports: [CurrencyPipe],
   templateUrl: './chocolate.component.html',
   styleUrl: './chocolate.component.sass'
 })
@@ -15,6 +15,7 @@ export class ChocolateComponent {
 
   openDetails: string[] = [];
 
+  // TODO: Add a unit test for this method
   toggleDetails(id: string): void {
     if (this.openDetails.includes(id)) {
       this.openDetails = this.openDetails.filter((i) => i !== id);
@@ -22,10 +23,4 @@ export class ChocolateComponent {
     }
     this.openDetails.push(id);
   }
-
-  log(item: any): void {
-    console.log(item);
-  }
-
-
 }

@@ -9,7 +9,6 @@ import { ChocolateResponse } from '../interfaces/chocolate-response';
 })
 
 export class ChocolateDataService {
-
   constructor(private http: HttpClient) { }
 
   public getChocolate(): Observable<ChocolateResponse> {

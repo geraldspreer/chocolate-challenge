@@ -10,8 +10,6 @@
   @if (chocolateData$ | async; as chocolateData) {
     <div class="card">
       @for (chocolate of chocolateData | includeStats ; track chocolate.id) {
-      // TODO: Remove this
-      {{ log(chocolate.prices) }}
         <div class="card-body">
           <app-chocolate [chocolate]="chocolate"></app-chocolate>
         </div>

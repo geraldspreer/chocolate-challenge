@@ -14,7 +14,7 @@
         <div class="ms-auto d-flex flex-column align-items-end py-3">
         @if (openDetails.includes(chocolate.id)) {
           @for(price of chocolate.prices; track price.link) {
-            <div class="{{ price.isCheapest ? 'mt-4' : '' }}">zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
+            <div class="{{ price.isCheapest ? 'mt-4' : 'mt-2' }}">zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
             <div class="mb-1">
               <span class='me-2'>{{ price.amount}}{{ price.unit}} für</span>
               <span class="fw-bold {{ price.isCheapest ? 'text-success h2' : 'text-black-50 h5' }}">{{ price.price | currency: 'EUR': true: '1.2-2' }}</span>
@@ -27,8 +27,8 @@
             @if(price.isCheapest) {
               <div class='small'>günstigster Preis pro 100g</div>
               <div class="fw-bold text-success h3 py-2">{{ price.priceFor100g | currency: 'EUR': true: '1.2-2' }}</div>
-              <div class='small'>im Durchschnitt {{ chocolate.averagePrice | currency: 'EUR': true: '1.2-2'}}  </div>
-              <div class='mb-3'>zum Shop: <a [href]="price.link">{{ price.shop }}</a></div>
+              <div class='mb-1'>gibt es bei: <a [href]="price.link">{{ price.shop }}</a></div>
+              <div class='small'>durchschnittl. Preis: {{ chocolate.averagePrice | currency: 'EUR': true: '1.2-2'}}  </div>
                 }
               }
         </div>

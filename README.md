@@ -10,14 +10,14 @@ This project uses Angular version 17.0.9.
 
 Use `npm install` to install the dependencies
 
-Run `ng serve` for a dev server
-Run `ng test` to execute the unit tests
+Run `ng serve` to start the dev server   
+I have added a couple of unit-tests - use `ng test` to run them  
 
 Navigate to `localhost:4200`
 
 Note: If you have multiple Anglular Apps running, you might need to change the port number.
 
-Steve Jobs once said:  
+Steve Jobs said:  
 > Good programmers ship!
 
 Therefore there are a few things that are not yet implemented, but should be 

@@ -21,6 +21,14 @@ describe('ChocolateDataService', () => {
     expect(service).toBeDefined();
   });
 
+  // TODO: use injection token for apiUrl
+  // so that we can test the value of apiUrl
+  it('calls `get` apiUrl', () => {
+    const getAction  = httpSpy('get');
+    service.getChocolate();
+    expect(getAction).toHaveBeenCalled();
+  });
+
   const httpSpy = (method: any) => {
     const suspect = TestBed.inject(HttpClient);
     return spyOn(suspect, method).and.returnValue(of(true));
