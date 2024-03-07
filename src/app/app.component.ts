@@ -11,7 +11,6 @@ import { StatsPipe } from './pipes/stats.pipe';
 @Component({
   selector: 'app-root',
   standalone: true,
-  // TODO: Remove what we don't need
   imports: [CommonModule, RouterOutlet, ChocolateComponent, StatsPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass',

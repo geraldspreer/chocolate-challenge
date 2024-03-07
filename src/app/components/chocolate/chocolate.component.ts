@@ -1,14 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
-import { AveragePricePipe } from '../../pipes/average-price.pipe';
-import { CheapestPricePipe } from '../../pipes/cheapest-price.pipe';
 import { UnknownChocolate } from '../../objects/unknown-chocolate';
 import { ChocolateWithStats } from '../../interfaces/chocolate-with-stats';
 
 @Component({
   selector: 'app-chocolate',
   standalone: true,
-  imports: [CheapestPricePipe, CurrencyPipe, AveragePricePipe],
+  imports: [CurrencyPipe,],
   templateUrl: './chocolate.component.html',
   styleUrl: './chocolate.component.sass'
 })
@@ -24,4 +22,10 @@ export class ChocolateComponent {
     }
     this.openDetails.push(id);
   }
+
+  log(item: any): void {
+    console.log(item);
+  }
+
+
 }
